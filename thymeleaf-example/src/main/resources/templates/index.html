@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Spring Boot Thymeleaf Example</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+</head>
+
+<body>
+<main role="main" class="container">
+
+    <h1>
+        <span th:text="'Hello, ' + ${title}"></span>
+    </h1>
+
+    <table th:if="${cats != null}">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr th:each="cat: ${cats}">
+            <td th:text="${cat.name}" />
+            <td th:text="${cat.age}" />
+        </tr>
+    </table>
+
+    <table th:if="${cat != null}">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td th:text="${cat.name}" />
+            <td th:text="${cat.age}" />
+        </tr>
+    </table>
+
+    <h3 th:if="${cat == null and cats == null}">
+        <span th:text="'No cat named ' + ${name}"></span>
+    </h3>
+
+</main>
+
+</body>
+</html>
