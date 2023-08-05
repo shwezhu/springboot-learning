@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.david.bean.Cat;
-
+ 
 @Controller
 public class MainController {
     ArrayList<Cat> cats = new ArrayList<>(Arrays.asList(
@@ -29,7 +29,7 @@ public class MainController {
             for (Cat cat : cats) {
                 if (cat.name().equals(name)) {
                     model.addAttribute("cat", cat);
-                    return "index"; // 返回 index.html
+                    return "index"; // return index.html
                 }
             }
             model.addAttribute("cat", null);
