@@ -20,8 +20,8 @@ public class RobotFilter extends OncePerRequestFilter {
             HttpServletRequest request,
             HttpServletResponse response,
             FilterChain filterChain) throws ServletException, IOException {
-        // 0. Should execute filter?
-        // if you don't do this whenever you access your website url on browser,
+        // 0. Should execute filter
+        // If you don't do this whenever you access your website url on browser,
         // you will get checked if you are Mr Robot, and cannot get the form log in
         if (!Collections.list(request.getHeaderNames()).contains(HEADER_NAME)) {
             filterChain.doFilter(request, response);
