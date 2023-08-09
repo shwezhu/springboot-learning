@@ -25,6 +25,7 @@ public class RobotFilter extends OncePerRequestFilter {
         // you will get checked if you are Mr Robot, and cannot get the form log in
         if (!Collections.list(request.getHeaderNames()).contains(HEADER_NAME)) {
             filterChain.doFilter(request, response);
+            return;
         }
 
         // 1. Authentication Decision
