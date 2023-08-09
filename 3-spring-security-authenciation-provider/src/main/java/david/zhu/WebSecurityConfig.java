@@ -28,6 +28,10 @@ public class WebSecurityConfig {
                             authorizeConfig.anyRequest().authenticated();
                         })
                 .formLogin(withDefaults())
+                // By calling httpBasic(), an instance of the BasicAuthenticationFilter is added to the filter chain.
+                // https://stackoverflow.com/a/57577530/16317008
+                // 为了实现通过 curl -u "user:password" http://localhost:8080/private 登录
+                .httpBasic(withDefaults())
                 .oauth2Login(withDefaults())
                 // 注意之前的参数是 new RobotFilter(authenticationManager)
                 .addFilterBefore(new RobotFilter(authManager), UsernamePasswordAuthenticationFilter.class)
@@ -40,7 +44,7 @@ public class WebSecurityConfig {
         // We are using in-memory-user demo purpose
         return new InMemoryUserDetailsManager(
                 User.builder()
-                        .username("david")
+                        .username("user-1")
                         .password("{noop}asd")
                         .authorities("ROLE_user")
                         .build()

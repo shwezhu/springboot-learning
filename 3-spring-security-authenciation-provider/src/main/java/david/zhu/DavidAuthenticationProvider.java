@@ -23,7 +23,8 @@ public class DavidAuthenticationProvider implements AuthenticationProvider {
         }
         // What do we do in case it's not Daniel
         // Well we don't know what to do with this, like the user password this must be handled
-        //by some other AuthenticationProvider, so to Signal this, we're returning null
+        // by some other AuthenticationProvider, so to Signal this, we're returning null
+        // Delegate to other AuthenticationProvider by return null
         return null;
     }
 

@@ -12,7 +12,6 @@ import java.util.List;
 // 我们可以观察AuthenticationProvider的supports()方法来看其所操控的Authentication类型
 public class RobotAuthenticationProvider implements AuthenticationProvider {
     private final List<String> passwords;
-
     public RobotAuthenticationProvider(List<String> password) {
         this.passwords = password;
     }
